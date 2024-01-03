@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+    build:
+      commands:
+        - env | grep -e POSTGRES_DATABASE -e POSTGRES_HOST -e POSTGRES_PASSWORD -e POSTGRES_PRISMA_URL -e POSTGRES_URL -e POSTGRES_URL_NON_POOLING -e POSTGRES_USER >> .env.production
+        - yarn run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
