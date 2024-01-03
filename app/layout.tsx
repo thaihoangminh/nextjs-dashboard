@@ -8,7 +8,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+    <head>
+      <meta charSet="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>My App</title>
+      <meta name="description" content="My App is a..."/>
+    </head>
+    <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
